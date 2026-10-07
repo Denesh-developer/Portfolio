@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#040806" />
 <!-- Browser Tab Icon (Favicon) -->
 <link rel="icon" type="image/png" href="assets/denesh.jpg" />
-  <meta name="description" content="Deneshraja N — frontend developer skilled in HTML5, CSS3, JavaScript and React.js." />
+  <meta name="description" content="Deneshraja N (Denesh) — frontend developer skilled in HTML5, CSS3, JavaScript and React.js." />
   <title>Deneshraja N — Frontend Developer</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -753,6 +753,43 @@
     padding: 24px 18px;
   }
 }
+/* ---------- CATEGORY FILTER TABS ---------- */
+.skills-filter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.filter-btn {
+  background: rgba(8, 17, 12, 0.7);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font: 500 13px var(--mono);
+  padding: 8px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--mint);
+  color: var(--text);
+  background: rgba(0, 255, 156, 0.08);
+}
+
+.filter-btn.active {
+  background: var(--mint);
+  border-color: var(--mint);
+  color: #02150b;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(0, 255, 156, 0.35);
+}
+
+.skill-category.hidden {
+  display: none !important;
+}
   </style>
 </head>
 <body>
@@ -854,10 +891,20 @@
           <p>Languages, frameworks, cloud services, and AI developer tools I build with.</p>
         </div>
 
+        <!-- Filter Tabs -->
+        <div class="skills-filter-nav">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="frontend">Frontend Development</button>
+          <button class="filter-btn" data-filter="backend">Backend &amp; Cloud</button>
+          <button class="filter-btn" data-filter="database">Databases &amp; Storage</button>
+          <button class="filter-btn" data-filter="languages">Programming Languages</button>
+          <button class="filter-btn" data-filter="tools">Tools &amp; AI Workflow</button>
+        </div>
+
         <div class="skills-container">
 
-          <!-- 1. Frontend Development (Tailwind & Bootstrap removed) -->
-          <div class="skill-category">
+          <!-- 1. Frontend Development -->
+          <div class="skill-category" data-category="frontend">
             <div class="skill-cat-header">
               <h3>Frontend Development</h3>
               <span class="badge-tag">UI / Web</span>
@@ -882,11 +929,11 @@
             </div>
           </div>
 
-          <!-- 2. Backend & Cloud (With Cloudinary) -->
-          <div class="skill-category">
+          <!-- 2. Backend & Cloud -->
+          <div class="skill-category" data-category="backend">
             <div class="skill-cat-header">
               <h3>Backend &amp; Cloud</h3>
-              <span class="badge-tag">Server / Media / DB</span>
+              <span class="badge-tag">Server / Media / API</span>
             </div>
             <div class="tech-grid">
               <div class="tech-card">
@@ -894,29 +941,51 @@
                 <span>PHP</span>
               </div>
               <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" />
+                <span>Firebase Auth</span>
+              </div>
+              <div class="tech-card">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--mint)">
+                  <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/>
+                </svg>
+                <span>Cloudinary</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Databases & Storage (Supabase Added) -->
+          <div class="skill-category" data-category="database">
+            <div class="skill-cat-header">
+              <h3>Databases &amp; Storage</h3>
+              <span class="badge-tag">DB &amp; Cloud</span>
+            </div>
+            <div class="tech-grid">
+              <div class="tech-card">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
                 <span>MySQL</span>
               </div>
               <div class="tech-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" />
-                <span>Firebase</span>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firestore" />
+                <span>Firestore</span>
               </div>
-             <div class="tech-card">
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--mint)">
-    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/>
-  </svg>
-  <span>Cloudinary</span>
-</div>
+              <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" alt="Supabase" />
+                <span>Supabase (RLS)</span>
+              </div>
             </div>
           </div>
 
-          <!-- 3. Programming Languages -->
-          <div class="skill-category">
+          <!-- 4. Programming Languages (C Language Added) -->
+          <div class="skill-category" data-category="languages">
             <div class="skill-cat-header">
               <h3>Programming Languages</h3>
               <span class="badge-tag">Core Logic</span>
             </div>
             <div class="tech-grid">
+              <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
+                <span>C Language</span>
+              </div>
               <div class="tech-card">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" />
                 <span>JavaScript</span>
@@ -932,13 +1001,17 @@
             </div>
           </div>
 
-          <!-- 4. Tools & AI Workflow (With AI Tools) -->
-          <div class="skill-category">
+          <!-- 5. Tools & AI Workflow (Android Studio Added) -->
+          <div class="skill-category" data-category="tools">
             <div class="skill-cat-header">
               <h3>Tools &amp; AI Workflow</h3>
               <span class="badge-tag">Dev &amp; AI</span>
             </div>
             <div class="tech-grid">
+              <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio" />
+                <span>Android Studio</span>
+              </div>
               <div class="tech-card">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
                 <span>Git</span>
@@ -954,10 +1027,6 @@
               <div class="tech-card">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" style="filter: invert(1);" alt="Vercel" />
                 <span>Vercel</span>
-              </div>
-<div class="tech-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio" />
-                <span>Android Studio</span>
               </div>
               <div class="tech-card">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1132,7 +1201,7 @@
             </p>
 
             <div class="availability" style="margin-bottom: 24px;">
-              <b></b> Open to full-time Frontend &amp; Web Developer roles
+              <b></b> Open to full-time Frontend &amp; Web Developer roles[cite: 2, 3]
             </div>
 
             <div class="contact-info-list">
@@ -1375,6 +1444,26 @@ window.addEventListener('load', () => {
 
   targets.forEach(el => observer.observe(el));
 })();
+// Skills Filter Tab Click Trigger
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const skillCategories = document.querySelectorAll(".skill-category");
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const selectedFilter = btn.getAttribute("data-filter");
+
+        skillCategories.forEach(category => {
+          if (selectedFilter === "all" || category.getAttribute("data-category") === selectedFilter) {
+            category.classList.remove("hidden");
+          } else {
+            category.classList.add("hidden");
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
